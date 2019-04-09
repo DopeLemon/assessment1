@@ -1,13 +1,16 @@
 #include <stdio.h>
 
-//Inputs: 
-//Outputs: encryption, decryption  
+int main(){
+    
+  int A;
+  int i;
+  int KEY=19;
+  int Y;
+  int X;
+  char string[] = "KHAN";
+  char message[4];
 
-int func (int encryption, int decryption, int x);	//function prototype
 
-int main()
-{
- int x;
 printf("Would you like to: \n\n");
 
 printf("1.  Encrypt a message using a rotation cipher given message text AND the rotation amount?\n\n");
@@ -22,10 +25,30 @@ printf("5.  Decrypt a message encrypted with a rotation cipher given ONLY cipher
 printf("                                                     OR                                        \n\n");
 printf("6.  Decrypt a message encrypted with a substitution cipher given ONLY cipher text?\n\n\n\n");
 
-printf("Enter a whole number between 0 and 7: \n\n", x);
+printf("Enter a whole number between 0 and 7: \n\n");
 
-scanf("%d", &x);
+scanf("%d", &A); //get the user to enter a value 
 
+switch (A)
+{
+case 1:
+ 
+  for ( i = 0; i < 4; i++)
+    {
+      printf ("%c=%d  :  ", string[i], string[i] - 65);
+     Y = (string[i] - 65 + KEY) % 26;
+   printf("  The key shifted value is %d  :  ", Y);
+   X=Y+65;
+   printf("  The new letters ASCII positon is %d  :  ", X);
+   printf("  The new letter is %c\n\n", X);
+   message[i]= X;
+   
+  } 
+  
+    printf("Therefore the new phrase is: \n\%s\n\n", message);
+  break;
+  }
 return 0;
 }
+
 
