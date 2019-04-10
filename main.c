@@ -68,6 +68,19 @@ case 1:
     printf("Therefore the new phrase is: \n\%s\n\n", message); //the new phrase/word is printed
   break;
   
+  
+  case 3:
+  //substitution encryption
+  break;
+  
+  
+  case 4:
+  //substitution decryption 
+  break;
+  
+  default:
+  printf("Error: invalid input, pleae try again\n\n");
+  
   }
 return 0;
 }
