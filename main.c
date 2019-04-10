@@ -14,7 +14,7 @@ int main(){
   char message[5];
 
 
-printf("Would you like to: \n\n");
+printf("Would you like to: \n\n"); //lists the task that are able to be performed 
 
 printf("1.  Encrypt a message using a rotation cipher given message text AND the rotation amount?\n\n");
 printf("2.  Decrypt a message encrypted with a rotation cipher given cipher text AND rotation amount?\n\n");
@@ -29,6 +29,8 @@ scanf("%d", &A);                                              //get the user to 
 
 switch (A)
 {
+    
+    
 case 1:
  printf("Enter a word or phrase: ", string);                   //the user is prompted to enter the word or phrase 
         scanf("%s", &string);                                  //this is scanned into the string 
@@ -36,37 +38,39 @@ case 1:
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value 
   for ( i = 0; i < 5; i++)                                     //the conditions for the encryption to work
     {
-      printf ("%c=%d  :  ", string[i], string[i] - 65);       //shows the position of the letter in the alphabet
-     Y = (string[i] - 65 + KEY) % 26;                         //shifts the value according to the key value
-   printf("  The key shifted value is %d  :  ", Y);           //prints this new value
-   X=Y+65;                                                    //adds 65 to the new value to shift the letter back into the ASCII range
-   printf("  The new letters ASCII positon is %d  :  ", X);   //prints this new position
-   printf("  The new letter is %c\n\n", X);                   //prints the correspnding letter for this ASCII value 
-   message[i]= X;
+      printf ("%c=%d  :  ", string[i], string[i] - 65);        //shows the position of the letter in the alphabet
+     Y = (string[i] - 65 + KEY) % 26;                          //shifts the value according to the key value
+   printf("  The KEY shifted value is %d  :  ", Y);            //prints this new value
+   X=Y+65;                                                     //adds 65 to the new value to shift the letter back into the ASCII range
+   printf("  The new letter ASCII positon is %d  :  ", X);     //prints this new position
+   printf("  The new letter is %c\n\n", X);                    //prints the correspnding letter for this ASCII value 
+   message[i]= X;                                              //assigns the value X to the new letter 
    
   } 
   
     printf("Therefore the new phrase is: \n\%s\n\n", message); //the new phrase/word is printed
   break;
  
+ 
+ 
  case 2:
- printf("Enter a word or phrase: ", string);                 //the user is prompted to enter the word or phrase 
-        scanf("%s", &string);                                //this is scanned into the string 
-    printf("Enter the key: ", KEY);
-        scanf("%d", &KEY);
-  for ( i = 0; i < 5; i++)
+ printf("Enter a word or phrase: ", string);                   //the user is prompted to enter the word or phrase 
+        scanf("%s", &string);                                  //this is scanned into the string 
+    printf("Enter the key: ", KEY);                            //the user is prompted to enter the letter shift amount (key)
+        scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value
+  for ( i = 0; i < 5; i++)                                     //the conditions for the encryption to work
     {
-      printf ("%c=%d  :  ", string[i], string[i] - 65);
-     Y = (string[i] - 65 - KEY) % 26;
-   printf("  The key shifted value is %d  :  ", Y);
-   X=Y+65;
-   printf("  The new letters ASCII positon is %d  :  ", X);
-   printf("  The new letter is %c\n\n", X);
-   message[i]= X;
+      printf ("%c=%d  :  ", string[i], string[i] - 65);        //shows the position of the letter in the alphabet
+     Y = (string[i] - 65 - KEY) % 26;                          //shifts the value according to the key value
+   printf("  The KEY shifted value is %d  :  ", Y);            //prints this new value
+   X=Y+65;                                                     //adds 65 to the new value to shift the letter back into the ASCII range
+   printf("  The new letter ASCII positon is %d  :  ", X);     //prints this new position
+   printf("  The new letter is %c\n\n", X);                    //prints the correspnding letter for this ASCII value 
+   message[i]= X;                                              //assigns the value X to the new letter 
    
   } 
   
-    printf("Therefore the new phrase is: \n\%s\n\n", message);
+    printf("Therefore the new phrase is: \n\%s\n\n", message); //the new phrase/word is printed
   break;
   
   }
