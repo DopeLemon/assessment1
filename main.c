@@ -2,6 +2,8 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main(){
     
@@ -11,7 +13,7 @@ int main(){
   int Y;
   int X;
   char string[8888];
-  char message[4];
+  char message[8888];
 
 
 printf("Would you like to: \n\n"); //lists the task that are able to be performed 
@@ -33,18 +35,14 @@ switch (A)
     
     
 case 1:
- printf("1: Enter a word or phrase: ");                   //the user is prompted to enter the word or phrase 
+ printf("1: Enter a word or phrase in CAPITAL letters only: ");                   //the user is prompted to enter the word or phrase 
         scanf("%s", string);                                  //this is scanned into the string 
     printf("Enter the key: ");                            //the user is prompted to enter the letter shift amount (key)
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value 
-  for ( i = 0; i < 4; i++)                                     //the conditions for the encryption to work
+  for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-   //printf ("%c=%d  :  ", string[i], string[i] - 65);        //shows the position of the letter in the alphabet
      Y = (string[i] - 65 + KEY) % 26;                          //shifts the value according to the key value
-//printf("  The KEY shifted value is %d  :  ", Y);            //prints this new value
    X=Y+65;                                                     //adds 65 to the new value to shift the letter back into the ASCII range
-//printf("  The new letter ASCII positon is %d  :  ", X);     //prints this new position
-//printf("  The new letter is %c\n\n", X);                    //assigns the value X to the new letter 
     message[i]= X; 
   } 
    printf("Therefore the new phrase is: \n\%s\n\n", message); //the new phrase/word is printed
@@ -54,20 +52,15 @@ case 1:
  
  
  case 2:
- printf("2: Enter a word or phrase: ");                   //the user is prompted to enter the word or phrase 
+ printf("2: Enter a word or phrase using CAPITAL letters only: ");                   //the user is prompted to enter the word or phrase 
         scanf("%s", string);                                  //this is scanned into the string 
     printf("Enter the key: ");                            //the user is prompted to enter the letter shift amount (key)
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value
-  for ( i = 0; i < 4; i++)                                     //the conditions for the encryption to work
+  for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-//      printf ("%c=%d  :  ", string[i], string[i] - 65);        //shows the position of the letter in the alphabet
      Y = (string[i] - 65 - KEY) % 26;                          //shifts the value according to the key value
-    // printf(" %d ", Y);
      if(Y<0){Y=Y + 26;}
-//   printf("  The KEY shifted value is %d  :  ", Y);            //prints this new value
    X=Y+65;                                                     //adds 65 to the new value to shift the letter back into the ASCII range
-//   printf("  The new letter ASCII positon is %d  :  ", X);     //prints this new position
-//   printf("  The new letter is %c\n\n", X);                    //prints the correspnding letter for this ASCII value 
    message[i]= X;                                              //assigns the value X to the new letter 
    
   } 
