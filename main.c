@@ -42,7 +42,7 @@ case 1:
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value 
   for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-     Y = string[i] - 65 + KEY;  
+     Y = (string[i] - 65 + KEY) % 26;  
      if(string[i]<65 || string[i]>90)
  {
    
@@ -51,7 +51,7 @@ case 1:
  }
   else 
   {
-      Y = Y % 26;                          //shifts the value according to the key value
+                              //shifts the value according to the key value
       X=Y+65;   
  message[i]= X; 
 }
@@ -72,8 +72,20 @@ case 1:
   for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
      Y = (string[i] - 65 + (26 - KEY)) % 26;                          //shifts the value according to the key value
-   X=Y+65;                                                     //adds 65 to the new value to shift the letter back into the ASCII range
-    message[i]= X;                                              //assigns the value X to the new letter 
+     if(string[i]<65 || string[i]>90)
+ {
+   
+     message[i]= ' ';
+                                                        //adds 65 to the new value to shift the letter back into the ASCII range
+ }
+  else 
+  {
+                                //shifts the value according to the key value
+      X=Y+65;   
+ message[i]= X; 
+}
+                                                        //adds 65 to the new value to shift the letter back into the ASCII range
+                                                 //assigns the value X to the new letter 
    }
   printf("Therefore the new phrase is: \n\%s\n\n", message); //the new phrase/word is printed
   break;
