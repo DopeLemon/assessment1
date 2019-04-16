@@ -15,6 +15,9 @@ int main() {
   int X;
   char string[8888];
   char message[8888];
+    char Alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+   //                  ||||||||||||||||||||||||||
+char Substitution[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
 
 printf("Would you like to: \n\n"); //lists the task that are able to be performed 
@@ -36,26 +39,30 @@ switch (A)
     
     
 case 1:
- printf("1: Enter a word or phrase in CAPITAL letters only: ");                   //the user is prompted to enter the word or phrase 
+ printf("1: Enter a word or phrase to be encrypted: ");                   //the user is prompted to enter the word or phrase 
         scanf(" %[^\n]s", string);                                  //this is scanned into the string 
     printf("Enter the key: ");                            //the user is prompted to enter the letter shift amount (key)
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value 
   for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-     X = (string[i] - 65 + KEY) % 26;  
-     if(string[i]<65 || string[i]>90)
+       X = string[i] - 65;  
+       if (string[i]<65 || string[i]>122)
  {
    
      message[i]= ' ';
                                                         //adds 65 to the new value to shift the letter back into the ASCII range
  }
-  else 
+   else if(X> -1 && X < 26) 
   {
-                              //shifts the value according to the key value
-      X=X+65;   
- message[i]= X; 
+      X=((X+KEY)%26)+65;                   //shifts the value according to the key value   
+      message[i]= X; 
 }
- 
+else 
+    {
+        X= (((X-32)+KEY)%26)+65;
+        
+         message[i]= X;
+     }
 }
    
    printf("Therefore the new phrase is: \n\%s\n\n", message); //the new phrase/word is printed
@@ -65,25 +72,29 @@ case 1:
  
  
  case 2:
- printf("2: Enter a word or phrase using CAPITAL letters only: ");                   //the user is prompted to enter the word or phrase 
+ printf("2: Enter a word or phrase to be decrypted: ");                   //the user is prompted to enter the word or phrase 
         scanf(" %[^\n]s", string);                                  //this is scanned into the string 
     printf("Enter the key: ");                            //the user is prompted to enter the letter shift amount (key)
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value
   for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-     X = (string[i] - 65 + (26 - KEY)) % 26;                          //shifts the value according to the key value
-     if(string[i]<65 || string[i]>90)
+     X = (string[i] - 65 ) ;                          //shifts the value according to the key value
+     if(string[i]<65 || string[i]>122)
  {
    
      message[i]= ' ';
                                                         //adds 65 to the new value to shift the letter back into the ASCII range
  }
-  else 
+  else if(X> -1 && X < 26)
   {
-                                //shifts the value according to the key value
-      X=X+65;   
- message[i]= X; 
-}
+      X=((X+(26 - KEY))%26)+65;                   //shifts the value according to the key value
+        message[i]= X; 
+}                    
+else
+    {
+        X= ((((X-32)+(26-KEY))%26)+65);         message[i]= X;
+     }
+
                                                         //adds 65 to the new value to shift the letter back into the ASCII range
                                                  //assigns the value X to the new letter 
    }
@@ -95,9 +106,14 @@ case 1:
   
   
   case 3:
-  printf("3: The letter substitution that will be used in this substitution cipher is: QWERTYUIOPASDFGHJKLZXCVBNM\n\n"); 
+  printf("3: The letter substitution that will be used in this substitution cipher is: %s \n\n", Substitution); 
   printf("Enter a word or phrase in CAPITAL letters only: "); //substitution encryption
   scanf(" %[^\n]s", string); 
+  for ( i = 0; i < strlen(string); i++){
+      X= string[i];
+      string[i]= Substitution[X];
+      printf("%s\n\n", Substitution);
+  }   
   printf("%s\n\n", string);
   break;
   
