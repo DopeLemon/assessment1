@@ -11,7 +11,7 @@ int main() {
   int A;
   int i;
   int KEY;
-  int Y;
+  //char Y;
   int X;
   char string[8888];
   char message[8888];
@@ -37,12 +37,12 @@ switch (A)
     
 case 1:
  printf("1: Enter a word or phrase in CAPITAL letters only: ");                   //the user is prompted to enter the word or phrase 
-        scanf(" %[^\n]*s", string);                                  //this is scanned into the string 
+        scanf(" %[^\n]s", string);                                  //this is scanned into the string 
     printf("Enter the key: ");                            //the user is prompted to enter the letter shift amount (key)
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value 
   for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-     Y = (string[i] - 65 + KEY) % 26;  
+     X = (string[i] - 65 + KEY) % 26;  
      if(string[i]<65 || string[i]>90)
  {
    
@@ -52,7 +52,7 @@ case 1:
   else 
   {
                               //shifts the value according to the key value
-      X=Y+65;   
+      X=X+65;   
  message[i]= X; 
 }
  
@@ -71,7 +71,7 @@ case 1:
         scanf("%d", &KEY);                                     //this is scanned and stored into the KEY value
   for ( i = 0; i < strlen(string); i++)                                     //the conditions for the encryption to work
     {
-     Y = (string[i] - 65 + (26 - KEY)) % 26;                          //shifts the value according to the key value
+     X = (string[i] - 65 + (26 - KEY)) % 26;                          //shifts the value according to the key value
      if(string[i]<65 || string[i]>90)
  {
    
@@ -81,7 +81,7 @@ case 1:
   else 
   {
                                 //shifts the value according to the key value
-      X=Y+65;   
+      X=X+65;   
  message[i]= X; 
 }
                                                         //adds 65 to the new value to shift the letter back into the ASCII range
@@ -95,7 +95,10 @@ case 1:
   
   
   case 3:
-  //substitution encryption
+  printf("3: The letter substitution that will be used in this substitution cipher is: QWERTYUIOPASDFGHJKLZXCVBNM\n\n"); 
+  printf("Enter a word or phrase in CAPITAL letters only: "); //substitution encryption
+  scanf(" %[^\n]s", string); 
+  printf("%s\n\n", string);
   break;
   
   
