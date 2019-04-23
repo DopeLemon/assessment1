@@ -14,9 +14,7 @@ int main() {
   int X;
   char string[8888];
   char message[8888];
-     char Alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-   //                   ||||||||||||||||||||||||||
-char Substitution[] = ("QWERTYUIOPASDFGHJKLZXCVBNM");
+  char Substitution[25];
 
 
 printf("Would you like to: \n\n");                                    //lists the task that are able to be performed 
@@ -118,6 +116,8 @@ else                                                                //if the let
   printf("3; Substitution cipher encryption: The letter KEY that will be used in this substitution cipher is: %s \n\n", Substitution);  
   printf("Enter a word or phrase to be encrypted: ");              //the user is prompted to enter the word or phrase
   scanf(" %[^\n]s", string);                                       //this is scanned into the string 
+  printf("Enter the 25 capital letter substitution key with no spaces: ");
+  scanf("%s", Substitution);
   for ( i = 0; i < strlen(string); i++){                           //the conditions for the encryption
       X = string[i] - 65;                                          //converts ASCII value of letter to alphabet position of letter and stores this value in the letter X
                                   
