@@ -31,8 +31,8 @@ int main() {
     char X;
     char string[8888];
     char message[8888];
-    char Substitution[26]= "QWERTYUIOPASDFGHJKLZXCVBNM";
-    char Alphabet[]=       "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char Substitution[26]= 
+    char Alphabet[]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
     printf("Would you like to: \n\n");                                    //lists the task that are able to be performed
@@ -170,8 +170,8 @@ int main() {
     case 4:
         printf("4 Substitution cipher decryption; Enter a word or phrase to be decrypted: ");           //the user is prompted to enter the word or phrase
         scanf(" %[^\n]s", string);                                 //this is scanned into the string
-        //printf("Enter the 26 capital letter substitution key with no spaces: ");  //the user is prompted to enter the letter substitution key
-        //scanf("%s", Substitution);
+        printf("Enter the 26 capital letter substitution key with no spaces: ");  //the user is prompted to enter the letter substitution key
+        scanf("%s", Substitution);
         for (i = 0; i< strlen(string); i++) {
             Y= string[i] - 65; 
           if(Y>=0 && Y<=26){
@@ -181,7 +181,7 @@ int main() {
                       W = Z;
                   }
               }
-              string[i]= 66 + W;
+              string[i]= 65 + W;
               message[i]= string[i];
           }
           else{message[i]=string[i];
