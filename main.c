@@ -40,7 +40,7 @@ int main() {
     printf("1.  Encrypt a message using a rotation cipher given message text AND the rotation amount?\n\n");
     printf("2.  Decrypt a message encrypted with a rotation cipher given cipher text AND rotation amount?\n\n");
     printf("3.  Encrypt of a message using a substitution cipher given message text AND alphabet substitutions?\n\n");
-    //printf("4.  Decrypt a message encrypted with a substitution cipher given cipher text AND substitutions?\n\n");
+    printf("4.  Decrypt a message encrypted with a substitution cipher given cipher text AND substitutions?\n\n");
     //printf("5.  Decrypt a message encrypted with a rotation cipher given ONLY cipher text?\n\n");
     //printf("6.  Decrypt a message encrypted with a substitution cipher given ONLY cipher text?\n\n\n\n");*/
 
@@ -166,7 +166,7 @@ int main() {
         break;
 
 
-    /*case 4:
+    case 4:
         printf("4 Substitution cipher decryption; Enter a word or phrase to be decrypted: ");           //the user is prompted to enter the word or phrase
         scanf(" %[^\n]s", string);                                 //this is scanned into the string
         printf("Enter the 26 capital letter substitution key with no spaces: ");  //the user is prompted to enter the letter substitution key
@@ -189,7 +189,7 @@ int main() {
 
          printf("Therefore the new phrase is: \n\%s\n\n", message); 
 
-    break;*/
+    break;
 
 
     default:
