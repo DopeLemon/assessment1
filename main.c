@@ -1,3 +1,5 @@
+/* Liam O'Neill: c3324755 */
+
 /*
 The following code can encrypt and decrypt both a rotation cipher and a substitution cipher
 
@@ -18,7 +20,6 @@ The Key is: NWLRBMQHCDAZOKYISXJFEGPTVU
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <ctype.h>
 
 int main() {
 
